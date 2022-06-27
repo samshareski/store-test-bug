@@ -10,7 +10,7 @@ export class AppProfile {
   @State() something = 1;
 
   componentWillLoad() {
-    onChange('clicks', (value) => {
+    onChange('clicks', () => {
       this.something++;
     });
   }
@@ -29,7 +29,7 @@ export class AppProfile {
     return (
       <div class="app-home">
         <div>Clicks: {state.clicks}</div>
-        <div>Clicks + 1: {this.clicksPlusOne}</div>
+        <div>Clicks + 1: {this.something}</div>
 
         <button onClick={this.handleClick}>Click me</button>
       </div>
