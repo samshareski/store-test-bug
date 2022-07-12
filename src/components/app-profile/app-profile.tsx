@@ -8,11 +8,16 @@ import { state, onChange } from '../../global/store';
 })
 export class AppProfile { 
   @State() something = 1;
+  unregisterOnChange;
 
   componentWillLoad() {
-    onChange('clicks', () => {
+    this.unregisterOnChange = onChange('clicks', () => {
       this.something++;
     });
+  }
+
+  disconnectedCallback() {
+    this.unregisterOnChange();
   }
   
  
